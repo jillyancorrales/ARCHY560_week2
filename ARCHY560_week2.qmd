@@ -1,0 +1,24 @@
+---
+title: "ARCHY560 Week 2: Lithic Data Cleaning"
+format: docx
+
+---
+
+```{r}
+
+library(tidyverse)
+
+# read in the data
+lithic_data <- read_csv("lithics_raw.csv")
+
+# clean the data
+lithic_data_clean <- 
+lithic_data |> # pipe 'then', cmd, shift, m
+  mutate(length_mm = parse_number(length_mm)) |>
+  mutate(platform_mm = parse_number(platform_mm)) |>
+  drop_na(length_mm, platform_mm) # drop rows where the cleaned values are missing
+
+
+
+```
+
